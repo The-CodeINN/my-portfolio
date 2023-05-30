@@ -1,9 +1,14 @@
-import Image from 'next/image'
+import { getProjects } from "@/sanity/sanity-util"
 
-export default function Home() {
+export default async function Home() {
+
+  const projects = await getProjects()
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello 
+      {projects.map((project) => (
+        <div key={project._id}>{project.title}</div>
+      ))} 
     </main>
   )
 }
