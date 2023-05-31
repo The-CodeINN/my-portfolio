@@ -1,14 +1,13 @@
-import { getProjects } from "@/sanity/sanity-util"
+import { getProjects } from "@/sanity/sanity-utils";
 
 export default async function Home() {
-
-  const projects = await getProjects()
+  const projects = await getProjects();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className=''>
       {projects.map((project) => (
-        <div key={project._id}>{project.title}</div>
-      ))} 
+        <div key={project._id}>{project.name}</div>
+      ))}
     </main>
-  )
+  );
 }
