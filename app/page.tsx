@@ -1,7 +1,13 @@
-export default function Home() {
+import { getProjects } from '@/sanity/sanity-utils';
+
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      Hello
+    <main className=''>
+      {projects.map((project) => (
+        <div key={project._id}>{project.name}</div>
+      ))}
     </main>
   );
 }
