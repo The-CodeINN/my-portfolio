@@ -1,15 +1,9 @@
-import { NavigationMenuDemo } from '@/components/Navbar/Navbar';
-import { getProjects } from '@/sanity/sanity-utils';
+import Image from 'next/image'
 
-export default async function Home() {
-  const projects = await getProjects();
-
+export default function Home() {
   return (
-    <div className=''>
-      <NavigationMenuDemo />
-      {projects.map((project) => (
-        <div key={project._id}>{project.name}</div>
-      ))}
+    <div className='bg-red-500'>
+      Hello
     </div>
-  );
+  )
 }
