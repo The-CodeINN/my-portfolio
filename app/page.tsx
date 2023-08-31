@@ -1,5 +1,6 @@
 import { getProfile } from '@/lib/sanity.query';
 import type { ProfileType } from '@/types';
+import HeroSvg from './icons/HeroSvg';
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -13,6 +14,7 @@ export default async function Home() {
               <h1>{data.headline}</h1>
             </div>
           ))}
+        <HeroSvg />
       </section>
     </main>
   );

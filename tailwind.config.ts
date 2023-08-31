@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const config = {
+module.exports = {
   darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,11 +9,6 @@ const config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       colors: {
         'primary-color': '#33E092',
         'secondary-color': '#0CCE6B',
@@ -21,8 +16,17 @@ const config = {
         'primary-bg': 'rgba(39, 39, 43, 0.4)',
         'secondary-bg': 'rgba(250, 250, 250, 0.4)',
       },
+       boxShadow: {
+        "line-light": "rgba(17, 17, 26, 0.1) 0px 1px 0px",
+        "line-dark": "rgb(29, 29, 32) 0px 1px 0px",
+      },
+      gridTemplateColumns: {
+        custom: "1.2fr 1fr",
+      },
+      backgroundPosition: {
+        zero: "0 0",
+      },
     },
   },
   plugins: [],
 };
-export default config;
