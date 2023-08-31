@@ -1,5 +1,4 @@
 import { socialLinks } from '@/app/data/social';
-import { LucideIcon } from 'lucide-react';
 
 export default function Social({ type }: { type: any }) {
   return (
@@ -7,7 +6,7 @@ export default function Social({ type }: { type: any }) {
       {socialLinks
         .filter((item) => item.status === type)
         .map((value) => (
-          <li key={value.icon}>
+          <li key={value.id}>
             <a
               href={value.url}
               target='_blank'

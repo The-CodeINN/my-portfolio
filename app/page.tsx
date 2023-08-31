@@ -2,6 +2,7 @@ import { getProfile } from '@/lib/sanity.query';
 import type { ProfileType } from '@/types';
 import HeroSvg from './icons/HeroSvg';
 import { Slide } from './animation/Slide';
+import Social from './components/shared/Social';
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -20,14 +21,14 @@ export default async function Home() {
                   {data.shortBio}
                 </p>
               </Slide>
-              {/* <Slide delay={0.1}>
-                <Social
-              </Slide> */}
+              <Slide delay={0.1}>
+                <Social type='social' />
+              </Slide>
             </div>
           ))}
-          <Slide delay={0.1}>
-        <HeroSvg />
-          </Slide>
+        <Slide delay={0.1}>
+          <HeroSvg />
+        </Slide>
       </section>
     </main>
   );
