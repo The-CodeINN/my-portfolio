@@ -29,7 +29,7 @@ export async function getJob() {
       _id,
       name,
       jobTitle,
-      "companyLogo": companyLogo.asset->url,
+      "logo": logo.asset->url,
       url,
       description,
       startDate,
