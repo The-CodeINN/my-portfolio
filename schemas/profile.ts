@@ -17,22 +17,22 @@ const profile = {
       name: "headline",
       title: "Headline",
       type: "string",
-      description: "A short description of yourself",
-      validation: (Rule) => Rule.required().min(40).max(90),
+      description: "In one short sentence, what do you do?",
+      validation: (Rule) => Rule.required().min(40).max(80),
     }),
     defineField({
       name: "profileImage",
       title: "Profile Image",
       type: "image",
-      description: "A picture of yourself",
+      description: "Upload a profile picture",
       options: {
         hotspot: true,
-        metadata: ["lqip"],
+        metadata: ["lqip"], // "blurhash", "palette", etc
       },
       fields: [
         {
           name: "alt",
-          title: "Alternative text",
+          title: "Alt",
           type: "string",
         },
       ],
@@ -43,6 +43,12 @@ const profile = {
       title: "Short Bio",
       type: "text",
       rows: 4,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "email",
+      title: "Email Address",
+      type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -63,7 +69,6 @@ const profile = {
             { title: "H1", value: "h1" },
             { title: "H2", value: "h2" },
             { title: "H3", value: "h3" },
-            { title: "H4", value: "h4" },
             { title: "Quote", value: "blockquote" },
           ],
           marks: {
@@ -80,15 +85,15 @@ const profile = {
           fields: [
             {
               name: "caption",
-              title: "Image Caption",
+              title: "Image caption",
               type: "string",
-              description: "Text to display below the image",
+              description: "Text displayed below the image.",
             },
             {
               name: "alt",
-              title: "Alternative text",
+              title: "Alt text",
               type: "string",
-              description: "Image description for screen readers",
+              description: "Important for SEO and accessiblity.",
             },
           ],
         },
