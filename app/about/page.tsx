@@ -5,6 +5,7 @@ import { Slide } from "../animation/Slide";
 import { PortableText } from "@portabletext/react";
 import { CustomPortableText } from "../components/shared/CustomPortableText";
 import Image from "next/image";
+import { ArrowDownToLine, ExternalLink, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Richard Emijere",
@@ -58,6 +59,35 @@ export default async function About() {
                       blurDataURL={data.profileImage.lqip}
                       priority
                     />
+                    <div className='flex flex-col text-center gap-y-4'>
+                      <div className='flex items-center gap-x-3'>
+                        <a
+                          href='https://www.craft.me/s/u7rqwd6YCb08YU'
+                          rel='noreferrer noopener'
+                          target='_blank'
+                          className='flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-semibold'
+                        >
+                          View Résumé <ExternalLink className='text-base' />
+                        </a>
+                        <a
+                          href={`${data.resumeURL}?dl=${data.fullName}-resume.pdf`}
+                          className='flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg'
+                          title='Download Resume'
+                        >
+                          <ArrowDownToLine
+                            className='text-lg'
+                            aria-label='Download Resume'
+                          />
+                        </a>
+                      </div>
+                      <a
+                        href={`mailto:${data.email}`}
+                        className='flex items-center gap-x-2 hover:text-primary-color'
+                      >
+                        <Mail />
+                        {data.email}
+                      </a>
+                    </div>
                   </div>
                 </Slide>
               </aside>
