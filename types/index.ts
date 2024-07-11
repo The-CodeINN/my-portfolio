@@ -1,4 +1,15 @@
+import { TableRow } from '@sanity/table';
 import { PortableTextBlock } from 'sanity';
+
+export interface Table {
+  rows?: TableRow[];
+  title?: string;
+}
+
+export interface TableValueProps {
+  table?: Table;
+  caption?: string;
+}
 
 export type ProfileType = {
   _id: string;
@@ -28,4 +39,20 @@ export type JobType = {
   startDate: string;
   endDate: string;
   location: string;
+};
+
+export type ProjectType = {
+  _id: string;
+  name: string;
+  slug: string;
+  tagline: string;
+  projectUrl: string;
+  repository: string;
+  logo: string;
+  coverImage: {
+    image: string;
+    alt: string | null;
+    lqip: string;
+  };
+  description: PortableTextBlock[];
 };

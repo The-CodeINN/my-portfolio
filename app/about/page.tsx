@@ -1,29 +1,32 @@
-import { getProfile } from "@/lib/sanity.query";
-import { ProfileType } from "@/types";
-import { Metadata } from "next";
-import { Slide } from "../animation/Slide";
-import { PortableText } from "@portabletext/react";
-import { CustomPortableText } from "../components/shared/CustomPortableText";
-import Image from "next/image";
-import { ArrowDownToLine, ExternalLink, Mail } from "lucide-react";
+import { ProfileType } from '@/types';
+import { Metadata } from 'next';
+import { Slide } from '../animation/Slide';
+import { PortableText } from '@portabletext/react';
+import { CustomPortableText } from '../components/shared/CustomPortableText';
+import Image from 'next/image';
+import { ArrowDownToLine, ExternalLink, Mail } from 'lucide-react';
+import { sanityFetch } from '@/lib/sanity.client';
+import { profileQuery } from '@/lib/sanity.query';
 
 export const metadata: Metadata = {
-  title: "About | Richard Emijere",
-  metadataBase: new URL("https://thecodeinn.vercel.app/about"),
+  title: 'About | Richard Emijere',
+  metadataBase: new URL('https://thecodeinn.vercel.app/about'),
   description:
-    "Learn more about my skills, experience and technical background",
+    'Learn more about my skills, experience and technical background',
   openGraph: {
-    title: "About | Richard Emijere",
-    url: "https://thecodeinn.vercel.app/about",
+    title: 'About | Richard Emijere',
+    url: 'https://thecodeinn.vercel.app/about',
     description:
-      "Learn more about my skills, experience and technical background",
-    images: "",
+      'Learn more about my skills, experience and technical background',
+    images: '',
   },
 };
 
 export default async function About() {
-  const profile: ProfileType[] = await getProfile();
-
+  const profile: ProfileType[] = await sanityFetch({
+    query: profileQuery,
+    tags: ['profile'],
+  });
   return (
     <main className='relative lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6'>
       {profile &&

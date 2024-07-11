@@ -44,9 +44,11 @@ export default function RootLayout({
       <body
         className={`${inter.className} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
-        <Navbar />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
