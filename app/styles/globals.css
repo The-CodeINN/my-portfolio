@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "prism.css";
+@import 'prism.css';
 
 :root,
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .path {
