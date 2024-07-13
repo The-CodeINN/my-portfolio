@@ -15,8 +15,7 @@ type Props = {
   };
 };
 
-const fallbackImage: string =
-  'https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/projects.png';
+const fallbackImage: string = '';
 
 // Dynamic metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -29,13 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${project.name} | Project`,
-    metadataBase: new URL(`https://victoreke.com/projects/${project.slug}`),
+    metadataBase: new URL(
+      `https://thecodeinn.vercel.app/projects/${project.slug}`
+    ),
     description: project.tagline,
     openGraph: {
       images: project.coverImage
         ? urlFor(project.coverImage.image).width(1200).height(630).url()
         : fallbackImage,
-      url: `https://victoreke.com/projects/${project.slug}`,
+      url: `https://thecodeinn.vercel.app/projects/${project.slug}`,
       title: project.name,
       description: project.tagline,
     },
@@ -70,8 +71,7 @@ export default async function Project({ params }: Props) {
                     : 'cursor-pointer hover:dark:border-zinc-700 hover:border-zinc-200'
                 }`}
               >
-                {/* <External aria-hidden='true' /> */}
-                <ExternalLink />
+                <ExternalLink aria-hidden='true' />
                 {project.projectUrl ? 'Live URL' : 'Coming Soon'}
               </a>
 
