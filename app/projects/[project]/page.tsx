@@ -10,16 +10,16 @@ import { sanityFetch } from '@/lib/sanity.client';
 import { ExternalLink, Github } from 'lucide-react';
 
 type Props = {
-  params: {
+  params: Promise<{
     project: string;
-  };
+  }>;
 };
 
 const fallbackImage: string = '';
 
 // Dynamic metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.project;
+  const { project: slug } = await params;
   const project: ProjectType = await sanityFetch({
     query: singleProjectQuery,
     tags: ['project'],
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Project({ params }: Props) {
-  const slug = params.project;
+  const { project: slug } = await params;
   const project: ProjectType = await sanityFetch({
     query: singleProjectQuery,
     tags: ['project'],
@@ -65,11 +65,10 @@ export default async function Project({ params }: Props) {
                 href={project.projectUrl}
                 rel='noreferrer noopener'
                 target='_blank'
-                className={`flex items-center gap-x-2 dark:bg-primary-bg bg-secondary-bg dark:text-white text-zinc-700 border border-transparent rounded-md px-4 py-2 duration-200 ${
-                  !project.projectUrl
+                className={`flex items-center gap-x-2 dark:bg-primary-bg bg-secondary-bg dark:text-white text-zinc-700 border border-transparent rounded-md px-4 py-2 duration-200 ${!project.projectUrl
                     ? 'cursor-not-allowed opacity-80'
                     : 'cursor-pointer hover:dark:border-zinc-700 hover:border-zinc-200'
-                }`}
+                  }`}
               >
                 <ExternalLink aria-hidden='true' />
                 {project.projectUrl ? 'Live URL' : 'Coming Soon'}
@@ -79,11 +78,10 @@ export default async function Project({ params }: Props) {
                 href={project.repository}
                 rel='noreferrer noopener'
                 target='_blank'
-                className={`flex items-center gap-x-2 dark:bg-primary-bg bg-secondary-bg dark:text-white text-zinc-700 border border-transparent rounded-md px-4 py-2 duration-200 ${
-                  !project.repository
+                className={`flex items-center gap-x-2 dark:bg-primary-bg bg-secondary-bg dark:text-white text-zinc-700 border border-transparent rounded-md px-4 py-2 duration-200 ${!project.repository
                     ? 'cursor-not-allowed opacity-80'
                     : 'cursor-pointer hover:dark:border-zinc-700 hover:border-zinc-200'
-                }`}
+                  }`}
               >
                 <Github aria-hidden='true' />
                 {project.repository ? 'GitHub' : 'No Repo'}

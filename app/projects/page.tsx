@@ -10,11 +10,11 @@ import PageHeading from '../components/shared/PageHeading';
 
 export const metadata: Metadata = {
   title: 'Project | Richard Emijere',
-  metadataBase: new URL('https://thecodeinn.vercel.app//projects'),
+  metadataBase: new URL('https://thecodeinn.vercel.app/projects'),
   description: 'Explore projects built by Richard Emijere',
   openGraph: {
     title: 'Projects | Richard Emijere',
-    url: 'https://thecodeinn.vercel.app//projects',
+    url: 'https://thecodeinn.vercel.app/projects',
     description: 'Explore projects built by Richard Emijere',
     images: '',
   },
@@ -40,7 +40,7 @@ export default async function Project() {
               <Link
                 href={`/projects/${project.slug}`}
                 key={project._id}
-                className='flex items-center gap-x-4 dark:bg-primary-bg bg-zinc-50 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-4 rounded-lg'
+                className='flex items-center gap-x-4 dark:bg-primary-bg bg-zinc-50 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-4 rounded-lg transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] gradient-border'
               >
                 {project.logo ? (
                   <Image

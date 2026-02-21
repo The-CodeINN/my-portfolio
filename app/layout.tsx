@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: options.url,
   },
-  themeColor: '#000000',
 };
 
 export default function RootLayout({
@@ -42,14 +41,17 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${inter.className} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
+        className={`${inter.className} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700 transition-colors duration-300`}
       >
         <Providers>
           <Navbar />
-          {children}
+          <main className='animate-fade-in'>
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>
     </html>
   );
 }
+

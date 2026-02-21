@@ -63,7 +63,7 @@ export const CustomPortableText: PortableTextComponents = {
   },
   marks: {
     em: ({ children }) => (
-      <em className='font-incognito font-semibold dark:text-primary-color text-tertiary-color'>
+      <em className='font-incognito font-semibold dark:text-primary text-tertiary'>
         {children}
       </em>
     ),
@@ -85,7 +85,7 @@ export const CustomPortableText: PortableTextComponents = {
       );
     },
     code: ({ children }) => (
-      <code className='font-incognito py-[0.15rem] px-1 rounded-sm font-medium dark:bg-primary-bg bg-secondary-bg dark:text-zinc-200 text-pink-500'>
+      <code className='font-incognito py-[0.15rem] px-1 rounded-sm font-medium dark:bg-primary-bg bg-secondary-bg dark:text-zinc-200 text-emerald-600'>
         {children}
       </code>
     ),

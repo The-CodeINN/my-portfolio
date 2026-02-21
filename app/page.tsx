@@ -31,7 +31,9 @@ export default async function Home() {
             </div>
           ))}
         <Slide delay={0.1}>
-          <HeroSvg />
+          <div className='animate-float'>
+            <HeroSvg />
+          </div>
         </Slide>
       </section>
       <Job />

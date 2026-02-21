@@ -44,15 +44,21 @@ const MobileNav = () => {
       <button
         aria-label='Toggle Menu'
         onClick={onToggleMenu}
-        className='md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-md p-2'
+        className='md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-md p-2 transition-transform duration-200 hover:scale-105 active:scale-95'
       >
         <Menu className='text-xl' />
       </button>
 
+      {/* Backdrop overlay */}
       <div
-        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full transform duration-[600ms] ease-[cubic-bezier(0.7,0,0,1)] dark:bg-zinc-900 bg-white ${
-          showMenu ? "translate-x-0 rounded-none" : "translate-x-full"
-        }`}
+        className={`md:hidden fixed inset-0 z-[9] bg-black/40 glass transition-opacity duration-300 ${showMenu ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        onClick={onToggleMenu}
+      />
+
+      <div
+        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full transform duration-[600ms] ease-[cubic-bezier(0.7,0,0,1)] dark:bg-zinc-900 bg-white ${showMenu ? "translate-x-0 rounded-none" : "translate-x-full"
+          }`}
       >
         <div className='flex items-center justify-between mt-6 px-8'>
           <Link href='/'>
@@ -71,9 +77,8 @@ const MobileNav = () => {
           <button
             aria-label='Toggle Menu'
             onClick={onToggleMenu}
-            className={`md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-full p-2 duration-500 ${
-              !showMenu && "-rotate-[360deg]"
-            }
+            className={`md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-full p-2 duration-500 ${!showMenu && "-rotate-[360deg]"
+              }
             `}
           >
             <X className='text-xl' />
@@ -85,11 +90,11 @@ const MobileNav = () => {
             <Link
               href={link.href}
               key={id}
-              className='flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group'
+              className='flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group transition-colors duration-200 hover:text-primary'
               onClick={onToggleMenu}
             >
               <link.icon
-                className='text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300'
+                className='text-zinc-500 group-hover:text-primary duration-300'
                 aria-hidden='true'
               />
               {link.title}

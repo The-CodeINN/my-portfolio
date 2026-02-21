@@ -20,7 +20,7 @@ export const hookSecret = process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET;
 export const mode = process.env.NODE_ENV;
 
 export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2023-07-21";
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2025-12-01";
 
 // Validate env varaibles
 function checkValue<T>(

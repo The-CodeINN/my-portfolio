@@ -51,30 +51,33 @@ export default async function About() {
               <aside className='flex flex-col lg:justify-self-center justify-self-start gap-y-8 lg:order-1 order-none mb-12'>
                 <Slide delay={0.1}>
                   <div className='sticky top-10'>
-                    <Image
-                      className='rounded-2xl mb-4 object-cover max-h-96 min-h-96 bg-top'
-                      src={data.profileImage.image}
-                      width={400}
-                      height={400}
-                      quality={100}
-                      alt={data.profileImage.alt}
-                      placeholder='blur'
-                      blurDataURL={data.profileImage.lqip}
-                      priority
-                    />
+                    <div className='relative group'>
+                      <Image
+                        className='rounded-2xl mb-4 object-cover max-h-96 min-h-96 bg-top transition-transform duration-500 group-hover:scale-[1.02]'
+                        src={data.profileImage.image}
+                        width={400}
+                        height={400}
+                        quality={100}
+                        alt={data.profileImage.alt}
+                        placeholder='blur'
+                        blurDataURL={data.profileImage.lqip}
+                        priority
+                      />
+                      <div className='absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                    </div>
                     <div className='flex flex-col text-center gap-y-4'>
                       <div className='flex items-center gap-x-3'>
                         <a
                           href='https://www.craft.me/s/u7rqwd6YCb08YU'
                           rel='noreferrer noopener'
                           target='_blank'
-                          className='flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-semibold'
+                          className='flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-semibold transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5'
                         >
                           View Résumé <ExternalLink className='text-base' />
                         </a>
                         <a
                           href={`${data.resumeURL}?dl=${data.fullName}-resume.pdf`}
-                          className='flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg'
+                          className='flex items-center justify-center text-center dark:text-primary text-secondary hover:underline basis-[10%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg transition-all duration-300 hover:scale-105'
                           title='Download Resume'
                         >
                           <ArrowDownToLine
@@ -85,7 +88,7 @@ export default async function About() {
                       </div>
                       <a
                         href={`mailto:${data.email}`}
-                        className='flex items-center gap-x-2 hover:text-primary-color'
+                        className='flex items-center gap-x-2 hover:text-primary transition-colors duration-300'
                       >
                         <Mail />
                         {data.email}

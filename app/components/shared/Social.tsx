@@ -11,10 +11,10 @@ export default function Social({ type }: { type: any }) {
               href={value.url}
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-center border-b dark:border-b-zinc-800 border-zinc-200 group'
+              className='flex items-center border-b dark:border-b-zinc-800 border-zinc-200 group transition-colors duration-300 hover:text-primary'
             >
               <value.icon
-                className='flex-shrink-0 h-5 w-5 text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300'
+                className='flex-shrink-0 h-5 w-5 text-zinc-500 group-hover:text-primary duration-300'
                 aria-hidden='true'
               />
               &nbsp;
