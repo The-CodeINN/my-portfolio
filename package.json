@@ -38,6 +38,6 @@
     "postcss": "^8.5.6",
     "react-refractor": "^4.0.0",
     "tailwindcss": "^4.2.0",
-    "typescript": "^5.9.3"
+    "typescript": "5.9.3"
   }
 }

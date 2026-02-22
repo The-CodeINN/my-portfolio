@@ -21,6 +21,10 @@ const Navbar = () => {
       title: "Blog",
       href: "/blog",
     },
+    {
+      title: "Photos",
+      href: "/photos",
+    },
   ];
 
   return (
