@@ -17,6 +17,10 @@ const Navbar = () => {
       title: "Projects",
       href: "/projects",
     },
+    {
+      title: "Blog",
+      href: "/blog",
+    },
   ];
 
   return (
