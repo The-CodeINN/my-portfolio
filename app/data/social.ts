@@ -18,7 +18,7 @@ export const socialLinks = [
   {
     id: 3,
     name: 'Linkedin',
-    url: 'https://www.linkedin.com/in/richard-emijere-84067bb0/',
+    url: 'https://www.linkedin.com/in/richard-emijere/',
     icon: Linkedin,
     status: 'social',
   },

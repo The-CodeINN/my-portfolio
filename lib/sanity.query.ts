@@ -18,7 +18,7 @@ export const profileQuery = groq`*[_type == "profile"]{
   usage
 }`;
 
-export const jobQuery = groq`*[_type == "job"] | order(_createdAt desc){
+export const jobQuery = groq`*[_type == "job"] | order(startDate desc){
   _id,
   name,
   jobTitle,

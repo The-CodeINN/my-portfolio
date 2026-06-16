@@ -9,15 +9,15 @@ import { sanityFetch } from '@/lib/sanity.client';
 import { profileQuery } from '@/lib/sanity.query';
 
 export const metadata: Metadata = {
-  title: 'About | Richard Emijere',
+  title: 'About | Richard Emijere — AI Engineer & Solution Architect',
   metadataBase: new URL('https://thecodeinn.vercel.app/about'),
   description:
-    'Learn more about my skills, experience and technical background',
+    'Senior Software Engineer & AI Solution Architect with 5+ years in production systems and 2+ years building LLM-powered AI agents in fintech.',
   openGraph: {
-    title: 'About | Richard Emijere',
+    title: 'About | Richard Emijere — AI Engineer & Solution Architect',
     url: 'https://thecodeinn.vercel.app/about',
     description:
-      'Learn more about my skills, experience and technical background',
+      'Senior Software Engineer & AI Solution Architect with 5+ years in production systems and 2+ years building LLM-powered AI agents in fintech.',
     images: '',
   },
 };
